@@ -2,12 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Juegos</title>
+    <title>Do Not Disturb Button</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra vertical */
+            align-items: center;     /* Centra horizontal */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .username {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .dnd-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            background-color: transparent;
+            font-size: 18px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        /* Estilo cuando está activo (rojo) */
+        .active {
+            border: 2px solid #b0b0b0;
+            background-color: #e6e6e6;
+        }
+
+        .circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .minus {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            line-height: 1;
+        }
+
+        /* Estado inactivo (gris) */
+        .inactive {
+            background-color: gray !important;
+        }
+    </style>
 </head>
 <body>
-    
 
-    <script></script>
+    <!-- Nombre de usuario -->
+    <div class="username">User: fulanitoperez</div>
+
+    <!-- Botón DND -->
+    <button class="dnd-button active" id="dndBtn">
+        <div class="circle" id="circle">
+            <span class="minus">—</span>
+        </div>
+        Do Not Disturb
+    </button>
+
+    <script>
+        const dndBtn = document.getElementById("dndBtn");
+        const circle = document.getElementById("circle");
+
+        dndBtn.addEventListener("click", () => {
+            circle.classList.toggle("inactive");
+            dndBtn.classList.toggle("active");
+        });
+    </script>
+
 </body>
 </html>
